@@ -2,7 +2,7 @@ terraform {
   required_providers {
     minio = {
       source  = "terraform-provider-minio/minio"
-      version = ">= 3.1.0"
+      version = "3.1.0"
     }
   }
 }
@@ -14,21 +14,22 @@ provider "minio" {
   minio_ssl      = false
 }
 
+# --- Bucket S3 MinIO ---
 resource "minio_s3_bucket" "web_bucket" {
   bucket = var.bucket_name
   acl    = "private"
 }
 
+# --- Fichier index.html ---
 resource "minio_s3_object" "index_html" {
-  bucket = minio_s3_bucket.web_bucket.bucket
-  object = "index.html"
-  source = "index.html"
-  acl    = "public-read"
+  bucket_name = minio_s3_bucket.web_bucket.bucket
+  object_name = "index.html"
+  source      = "index.html"
 }
 
+# --- Fichier style.css ---
 resource "minio_s3_object" "style_css" {
-  bucket = minio_s3_bucket.web_bucket.bucket
-  object = "style.css"
-  source = "style.css"
-  acl    = "public-read"
+  bucket_name = minio_s3_bucket.web_bucket.bucket
+  object_name = "style.css"
+  source      = "style.css"
 }
