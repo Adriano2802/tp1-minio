@@ -2,7 +2,7 @@ terraform {
   required_providers {
     minio = {
       source  = "terraform-provider-minio/minio"
-      version = ">= 3.1.0"
+      version = "3.1.0"
     }
   }
 }
@@ -14,26 +14,22 @@ provider "minio" {
   minio_ssl      = false
 }
 
-# Bucket privé
+# --- Bucket S3 MinIO ---
 resource "minio_s3_bucket" "web_bucket" {
-  bucket_name = var.bucket_name
+  bucket = var.bucket_name
+  acl    = "private"
 }
 
-# index.html - public
+# --- Fichier index.html ---
 resource "minio_s3_object" "index_html" {
-  bucket_name = minio_s3_bucket.web_bucket.bucket_name
+  bucket_name = minio_s3_bucket.web_bucket.bucket
   object_name = "index.html"
-  content_file = "index.html"
-
-  # Nouvelle syntaxe ACL
-  object_acl = "public-read"
+  source      = "index.html"
 }
 
-# style.css - public
+# --- Fichier style.css ---
 resource "minio_s3_object" "style_css" {
-  bucket_name = minio_s3_bucket.web_bucket.bucket_name
+  bucket_name = minio_s3_bucket.web_bucket.bucket
   object_name = "style.css"
-  content_file = "style.css"
-
-  object_acl = "public-read"
+  source      = "style.css"
 }
