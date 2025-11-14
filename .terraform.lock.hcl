@@ -1,0 +1,22 @@
+# This file is maintained automatically by "tofu init".
+# Manual edits may be lost in future updates.
+
+provider "registry.opentofu.org/terraform-provider-minio/minio" {
+  version     = "3.11.4"
+  constraints = ">= 3.1.0"
+  hashes = [
+    "h1:k/5BCaz5y3/rxLvr2YY0OuB3ZMrmNkDVHV3ar6PdeJA=",
+    "zh:045abfdff09f48586a38c2303e06f8740cdb4cf7275e26a089caf3b7ef0ebb33",
+    "zh:0ca0e5abee1a10242b7522d082ad767c054128b95738902612651978ffc6de4f",
+    "zh:207c3838bb27bc55bb82e0f8275f5f10faf5f8ad280e8fc3d86fff4fbe4028f6",
+    "zh:362caeb1c0ebc5e3d0d5d87ae88492f4f22265708359f0b3f6b1130c347d1f1f",
+    "zh:37642a0f24519c0c91d7ca35c448047c13d7d70b3ffdd1e37483a917818f1d5d",
+    "zh:40de2aa3d3229b906426d6eb38cde7aec214b45148e94e8350c9a0df6f48b385",
+    "zh:4cc53bde9ac5f8c6b75b97900ff913c305ff763944500745279f42ff2f9f2678",
+    "zh:5370a10bbe914b3dd3c0fd2a767ad0829f75dced184bb2a04f1689cc7a7f308d",
+    "zh:a9820e3971de3a57a5ec924b5220979dad89b0d9255aaf1886efec7da8749c14",
+    "zh:c97583b8c6d3ed73c4779a01006fdaf0bba6f213ccda9e4f412f797ba7b16634",
+    "zh:dcfef3a8a684c357cd665a4418b23bf735469e9a6790a1233627c11d90954541",
+    "zh:e693949d3a14ed0d1a266ecfb7c989293e66227681145cf1a0e22b368b4fcaa2",
+  ]
+}
